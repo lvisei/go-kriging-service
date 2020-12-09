@@ -1,0 +1,252 @@
+basePath: /
+definitions:
+  ordinary.GridMatrices:
+    properties:
+      data:
+        items:
+          items:
+            type: number
+          type: array
+        type: array
+      width:
+        type: number
+      xLim:
+        items:
+          type: number
+        type: array
+      yLim:
+        items:
+          type: number
+        type: array
+      zLim:
+        items:
+          type: number
+        type: array
+    type: object
+  schema.ErrorItem:
+    properties:
+      code:
+        description: 错误码
+        type: integer
+      message:
+        description: 错误信息
+        type: string
+    type: object
+  schema.ErrorResult:
+    properties:
+      error:
+        $ref: '#/definitions/schema.ErrorItem'
+        description: 错误项
+    type: object
+  schema.GridLevelColor:
+    properties:
+      rgba:
+        description: RGBA颜色 [255, 255, 255, 255]
+        example:
+        - 255
+        - 128
+        - 169
+        - 255
+        items:
+          type: integer
+        type: array
+      value:
+        description: 值区间 [0, 15]
+        example:
+        - 0
+        - 15
+        items:
+          type: number
+        type: array
+    type: object
+  schema.OrdinaryGridInfo:
+    properties:
+      grid:
+        $ref: '#/definitions/ordinary.GridMatrices'
+      timeCost:
+        description: 耗时
+        type: string
+    type: object
+  schema.OrdinaryGridParam:
+    properties:
+      polygon:
+        description: Polygon Geometry String
+        example: '{"type": "Polygon","coordinates": [[[103.614373, 27.00541],[104.174357,
+          26.635252],[104.356163, 28.018448],[103.614373, 27.00541]]]}'
+        type: string
+      width:
+        description: 网格单元宽度
+        example: 0.01
+        type: number
+    required:
+    - polygon
+    - width
+    type: object
+  schema.OrdinaryPlotPngParam:
+    properties:
+      Ylim:
+        description: Ylim
+        example:
+        - 26.635252
+        - 28.018448
+        items:
+          type: number
+        type: array
+      colors:
+        description: colors
+        items:
+          $ref: '#/definitions/schema.GridLevelColor'
+        type: array
+      height:
+        description: 图片高度
+        example: 100
+        type: integer
+      width:
+        description: 图片宽度
+        example: 100
+        type: integer
+      xlim:
+        description: Xlim
+        example:
+        - 103.614373
+        - 104.356163
+        items:
+          type: number
+        type: array
+    required:
+    - Ylim
+    - colors
+    - height
+    - width
+    - xlim
+    type: object
+  schema.OrdinaryQueryGridParam:
+    properties:
+      grid:
+        $ref: '#/definitions/schema.OrdinaryGridParam'
+      train:
+        $ref: '#/definitions/schema.OrdinaryTrainParam'
+    type: object
+  schema.OrdinaryQueryGridPngParam:
+    properties:
+      grid:
+        $ref: '#/definitions/schema.OrdinaryGridParam'
+      plotPng:
+        $ref: '#/definitions/schema.OrdinaryPlotPngParam'
+      train:
+        $ref: '#/definitions/schema.OrdinaryTrainParam'
+    type: object
+  schema.OrdinaryTrainParam:
+    properties:
+      alpha:
+        default: 0
+        description: alpha
+        example: 100
+        type: number
+      lats:
+        description: 纬度数组
+        example:
+        - 25.95
+        - 25.81
+        - 25.95
+        items:
+          type: number
+        type: array
+      lons:
+        description: 经度数组
+        example:
+        - 102.68
+        - 99.36
+        - 101.23
+        items:
+          type: number
+        type: array
+      model:
+        description: 函数模型(1:"spherical" 2:"exponential" 3:"gaussian")
+        example: 1
+        type: integer
+      sigma2:
+        default: 0
+        description: sigma2
+        example: 0
+        type: number
+      values:
+        description: 权重值数组
+        example:
+        - 9.6
+        - 10.2
+        - 5.4
+        items:
+          type: number
+        type: array
+    required:
+    - lats
+    - lons
+    - model
+    - values
+    type: object
+info:
+  contact: {}
+  description: GIN + WIRE.
+  title: go-kriging-service
+  version: 1.0.0
+paths:
+  /api/v1/ordinary/grid:
+    post:
+      parameters:
+      - description: 请求参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/schema.OrdinaryQueryGridParam'
+      responses:
+        "200":
+          description: 插值的网格数据
+          schema:
+            $ref: '#/definitions/schema.OrdinaryGridInfo'
+        "400":
+          description: '{error:{code:0,message:无效的请求参数}}'
+          schema:
+            $ref: '#/definitions/schema.ErrorResult'
+        "500":
+          description: '{error:{code:0,message:服务器错误}}'
+          schema:
+            $ref: '#/definitions/schema.ErrorResult'
+      summary: 查询插值生成的网格数据
+      tags:
+      - 普通克力金
+  /api/v1/ordinary/grid-png:
+    post:
+      parameters:
+      - description: 请求参数
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/schema.OrdinaryQueryGridPngParam'
+      produces:
+      - image/png
+      responses:
+        "200":
+          description: 文件图片
+        "400":
+          description: '{error:{code:0,message:无效的请求参数}}'
+          schema:
+            $ref: '#/definitions/schema.ErrorResult'
+        "500":
+          description: '{error:{code:0,message:服务器错误}}'
+          schema:
+            $ref: '#/definitions/schema.ErrorResult'
+      summary: 查询插值生成图片
+      tags:
+      - 普通克力金
+schemes:
+- http
+- https
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
