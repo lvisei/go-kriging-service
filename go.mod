@@ -15,7 +15,7 @@ require (
 	github.com/jinzhu/copier v0.0.0-20190924061706-b57f9002281a
 	github.com/json-iterator/go v1.1.10
 	github.com/koding/multiconfig v0.0.0-20171124222453-69c27309b2d7
-	github.com/liuvigongzuoshi/go-kriging v0.0.1-alpha.6
+	github.com/liuvigongzuoshi/go-kriging v0.0.1-alpha.11
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.6.0
 	github.com/stretchr/testify v1.6.1

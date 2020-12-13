@@ -1,7 +1,7 @@
 package schema
 
 import (
-	"github.com/liuvigongzuoshi/go-kriging/ordinary"
+	"github.com/liuvigongzuoshi/go-kriging/ordinarykriging"
 )
 
 // Ordinary
@@ -13,19 +13,19 @@ import (
 
 // OrdinaryTrainParam 训练模型参数
 type OrdinaryTrainParam struct {
-	Values    []float64          `json:"values" binding:"required" example:"9.6,10.2,5.4"`      // 权重值数组
-	Lons      []float64          `json:"lons" binding:"required" example:"102.68,99.36,101.23"` // 经度数组
-	Lats      []float64          `json:"lats" binding:"required" example:"25.95,25.81,25.95"`   // 纬度数组
-	Sigma2    float64            `json:"sigma2" binding:"" default:"0" example:"0"`             // sigma2
-	Alpha     float64            `json:"alpha" binding:""  default:"0" example:"100"`           // alpha
-	Model     uint16             `json:"model" binding:"required,oneof=1 2 3" example:"1"`      // 函数模型(1:"spherical" 2:"exponential" 3:"gaussian")
-	ModelType ordinary.ModelType `json:"-"`
+	Values    []float64                 `json:"values" binding:"required" example:"9.6,10.2,5.4"`      // 权重值数组
+	Lons      []float64                 `json:"lons" binding:"required" example:"102.68,99.36,101.23"` // 经度数组
+	Lats      []float64                 `json:"lats" binding:"required" example:"25.95,25.81,25.95"`   // 纬度数组
+	Sigma2    float64                   `json:"sigma2" binding:"" default:"0" example:"0"`             // sigma2
+	Alpha     float64                   `json:"alpha" binding:""  default:"0" example:"100"`           // alpha
+	Model     uint16                    `json:"model" binding:"required,oneof=1 2 3" example:"1"`      // 函数模型(1:"spherical" 2:"exponential" 3:"gaussian")
+	ModelType ordinarykriging.ModelType `json:"-"`
 }
 
 // OrdinaryGridParam 插值网格参数
 type OrdinaryGridParam struct {
 	Polygon         string                   `json:"polygon" binding:"required" example:"{\"type\": \"Polygon\",\"coordinates\": [[[103.614373, 27.00541],[104.174357, 26.635252],[104.356163, 28.018448],[103.614373, 27.00541]]]}"` // Polygon Geometry String
-	PolygonGeometry ordinary.PolygonGeometry `json:"-"`                                                                                                                                              // Polygon Geometry
+	PolygonGeometry ordinarykriging.PolygonGeometry `json:"-"`                                                                                                                                                                               // Polygon Geometry
 	Width           float64                  `json:"width" binding:"required" example:"0.01" example:"0.01"`                                                                                                                          // 网格单元宽度
 }
 
@@ -58,8 +58,8 @@ type OrdinaryQueryGridPngParam struct {
 
 // OrdinaryGridInfo 插值的网格数据
 type OrdinaryGridInfo struct {
-	GridMatrices *ordinary.GridMatrices `json:"grid"`
-	Variogram    *ordinary.Variogram    `json:"-"`
+	GridMatrices *ordinarykriging.GridMatrices `json:"grid"`
+	Variogram    *ordinarykriging.Variogram    `json:"-"`
 	TimeCost     string                 `json:"timeCost"` // 耗时
 }
 

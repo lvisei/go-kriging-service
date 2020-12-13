@@ -10,7 +10,7 @@ import (
 	"time"
 
 	"github.com/google/wire"
-	"github.com/liuvigongzuoshi/go-kriging/ordinary"
+	"github.com/liuvigongzuoshi/go-kriging/ordinarykriging"
 )
 
 // OrdinarySet 注入Ordinary
@@ -24,18 +24,18 @@ type Ordinary struct {
 func (a *Ordinary) Grid(ctx context.Context, trainParam schema.OrdinaryTrainParam, gridParam schema.OrdinaryGridParam) (*schema.OrdinaryGridInfo, error) {
 	model := trainParam.Model
 	if model == 1 {
-		trainParam.ModelType = ordinary.Spherical
+		trainParam.ModelType = ordinarykriging.Spherical
 	} else if model == 2 {
-		trainParam.ModelType = ordinary.Exponential
+		trainParam.ModelType = ordinarykriging.Exponential
 	} else if model == 3 {
-		trainParam.ModelType = ordinary.Gaussian
+		trainParam.ModelType = ordinarykriging.Gaussian
 	} else {
 		return nil, errors.New400Response("模型类型错误")
 	}
 
 	start := time.Now()
 
-	ordinaryKriging := ordinary.NewOrdinary(trainParam.Values, trainParam.Lons, trainParam.Lats)
+	ordinaryKriging := ordinarykriging.NewOrdinary(trainParam.Values, trainParam.Lons, trainParam.Lats)
 	_ = ordinaryKriging.Train(trainParam.ModelType, trainParam.Sigma2, trainParam.Alpha)
 	gridMatrices := ordinaryKriging.Grid(gridParam.PolygonGeometry.Coordinates, gridParam.Width)
 
@@ -50,9 +50,9 @@ func (a *Ordinary) Grid(ctx context.Context, trainParam schema.OrdinaryTrainPara
 // GridPng 插值生成网格图片
 func (a *Ordinary) GridPng(ctx context.Context, w http.ResponseWriter, gridInfo *schema.OrdinaryGridInfo, params schema.OrdinaryPlotPngParam) error {
 	ordinaryKriging := gridInfo.Variogram
-	var gridLevelColor []ordinary.GridLevelColor
+	var gridLevelColor []ordinarykriging.GridLevelColor
 	for _, item := range params.Colors {
-		gridLevelColor = append(gridLevelColor, ordinary.GridLevelColor{Value: item.Value, Color: color.RGBA{R: item.Color[0], G: item.Color[1], B: item.Color[2], A: item.Color[3]}})
+		gridLevelColor = append(gridLevelColor, ordinarykriging.GridLevelColor{Value: item.Value, Color: color.RGBA{R: item.Color[0], G: item.Color[1], B: item.Color[2], A: item.Color[3]}})
 	}
 	canvasX := ordinaryKriging.Plot(gridInfo.GridMatrices, params.Width, params.Height, params.Xlim, params.Ylim, gridLevelColor)
 

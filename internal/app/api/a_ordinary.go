@@ -8,7 +8,7 @@ import (
 	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/schema"
 	"github.com/liuvigongzuoshi/go-kriging-service/pkg/errors"
 	"github.com/liuvigongzuoshi/go-kriging-service/pkg/util/json"
-	"github.com/liuvigongzuoshi/go-kriging/ordinary"
+	"github.com/liuvigongzuoshi/go-kriging/ordinarykriging"
 )
 
 // OrdinarySet 注入Ordinary
@@ -52,7 +52,7 @@ func (a *Ordinary) GridPng(c *gin.Context) {
 		return
 	}
 
-	var polygonGeometry ordinary.PolygonGeometry
+	var polygonGeometry ordinarykriging.PolygonGeometry
 	if err := json.Unmarshal([]byte(item.GridParam.Polygon), &polygonGeometry); err != nil {
 		ginx.ResError(c, err)
 		return
