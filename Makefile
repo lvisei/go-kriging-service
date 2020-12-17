@@ -2,10 +2,10 @@
 
 NOW = $(shell date -u '+%Y%m%d%I%M%S')
 
-RELEASE_VERSION = v0.0.2
+RELEASE_VERSION = v0.0.3
 
 APP = go-kriging-service
-SERVER_BIN = ./cmd/${APP}/${APP}
+SERVER_BIN = ./cmd/${APP}
 RELEASE_ROOT = release
 RELEASE_SERVER = release/${APP}
 GIT_COUNT 		= $(shell git rev-list --all --count)

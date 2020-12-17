@@ -1,6 +1,6 @@
 basePath: /
 definitions:
-  ordinary.GridMatrices:
+  ordinarykriging.GridMatrices:
     properties:
       data:
         items:
@@ -58,11 +58,13 @@ definitions:
         items:
           type: number
         type: array
+    required:
+    - value
     type: object
   schema.OrdinaryGridInfo:
     properties:
       grid:
-        $ref: '#/definitions/ordinary.GridMatrices'
+        $ref: '#/definitions/ordinarykriging.GridMatrices'
       timeCost:
         description: 耗时
         type: string

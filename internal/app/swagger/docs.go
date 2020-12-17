@@ -104,7 +104,7 @@ var doc = `{
         }
     },
     "definitions": {
-        "ordinary.GridMatrices": {
+        "ordinarykriging.GridMatrices": {
             "type": "object",
             "properties": {
                 "data": {
@@ -163,6 +163,9 @@ var doc = `{
         },
         "schema.GridLevelColor": {
             "type": "object",
+            "required": [
+                "value"
+            ],
             "properties": {
                 "rgba": {
                     "description": "RGBA颜色 [255, 255, 255, 255]",
@@ -194,7 +197,7 @@ var doc = `{
             "type": "object",
             "properties": {
                 "grid": {
-                    "$ref": "#/definitions/ordinary.GridMatrices"
+                    "$ref": "#/definitions/ordinarykriging.GridMatrices"
                 },
                 "timeCost": {
                     "description": "耗时",

@@ -36,7 +36,10 @@ func (a *Ordinary) Grid(ctx context.Context, trainParam schema.OrdinaryTrainPara
 	start := time.Now()
 
 	ordinaryKriging := ordinarykriging.NewOrdinary(trainParam.Values, trainParam.Lons, trainParam.Lats)
-	_ = ordinaryKriging.Train(trainParam.ModelType, trainParam.Sigma2, trainParam.Alpha)
+	if _, err := ordinaryKriging.Train(trainParam.ModelType, trainParam.Sigma2, trainParam.Alpha); err != nil {
+		return nil, errors.New400Response("训练模型参数有误")
+	}
+
 	gridMatrices := ordinaryKriging.Grid(gridParam.PolygonGeometry.Coordinates, gridParam.Width)
 
 	tc := time.Since(start)
