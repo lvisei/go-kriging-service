@@ -2,7 +2,7 @@
 
 NOW = $(shell date -u '+%Y%m%d%I%M%S')
 
-RELEASE_VERSION = v0.0.3
+RELEASE_VERSION = v0.0.4
 
 APP = go-kriging-service
 SERVER_BIN = ./cmd/${APP}
