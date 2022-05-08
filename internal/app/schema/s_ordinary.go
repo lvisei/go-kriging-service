@@ -1,7 +1,7 @@
 package schema
 
 import (
-	"github.com/liuvigongzuoshi/go-kriging/ordinarykriging"
+	"github.com/lvisei/go-kriging/ordinarykriging"
 )
 
 // Ordinary
@@ -24,9 +24,9 @@ type OrdinaryTrainParam struct {
 
 // OrdinaryGridParam 插值网格参数
 type OrdinaryGridParam struct {
-	Polygon         string                   `json:"polygon" binding:"required" example:"{\"type\": \"Polygon\",\"coordinates\": [[[103.614373, 27.00541],[104.174357, 26.635252],[104.356163, 28.018448],[103.614373, 27.00541]]]}"` // Polygon Geometry String
+	Polygon         string                          `json:"polygon" binding:"required" example:"{\"type\": \"Polygon\",\"coordinates\": [[[103.614373, 27.00541],[104.174357, 26.635252],[104.356163, 28.018448],[103.614373, 27.00541]]]}"` // Polygon Geometry String
 	PolygonGeometry ordinarykriging.PolygonGeometry `json:"-"`                                                                                                                                                                               // Polygon Geometry
-	Width           float64                  `json:"width" binding:"required" example:"0.01" example:"0.01"`                                                                                                                          // 网格单元宽度
+	Width           float64                         `json:"width" binding:"required" example:"0.01" example:"0.01"`                                                                                                                          // 网格单元宽度
 }
 
 // OrdinaryPlotPngParam  插值图片参数
@@ -60,7 +60,7 @@ type OrdinaryQueryGridPngParam struct {
 type OrdinaryGridInfo struct {
 	GridMatrices *ordinarykriging.GridMatrices `json:"grid"`
 	Variogram    *ordinarykriging.Variogram    `json:"-"`
-	TimeCost     string                 `json:"timeCost"` // 耗时
+	TimeCost     string                        `json:"timeCost"` // 耗时
 }
 
 // OrdinaryQueryOptions 示例对象查询可选参数项

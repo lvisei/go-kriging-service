@@ -2,9 +2,9 @@ package middleware
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/contextx"
-	"github.com/liuvigongzuoshi/go-kriging-service/pkg/logger"
-	"github.com/liuvigongzuoshi/go-kriging-service/pkg/util/trace"
+	"github.com/lvisei/go-kriging-service/internal/app/contextx"
+	"github.com/lvisei/go-kriging-service/pkg/logger"
+	"github.com/lvisei/go-kriging-service/pkg/util/trace"
 )
 
 // TraceMiddleware 跟踪ID中间件

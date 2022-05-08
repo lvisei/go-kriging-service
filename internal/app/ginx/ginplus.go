@@ -7,10 +7,10 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/schema"
-	"github.com/liuvigongzuoshi/go-kriging-service/pkg/errors"
-	"github.com/liuvigongzuoshi/go-kriging-service/pkg/logger"
-	"github.com/liuvigongzuoshi/go-kriging-service/pkg/util/json"
+	"github.com/lvisei/go-kriging-service/internal/app/schema"
+	"github.com/lvisei/go-kriging-service/pkg/errors"
+	"github.com/lvisei/go-kriging-service/pkg/logger"
+	"github.com/lvisei/go-kriging-service/pkg/util/json"
 )
 
 // 定义上下文中的键

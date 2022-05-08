@@ -2,11 +2,11 @@ package middleware
 
 import (
 	"fmt"
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/ginx"
+	"github.com/lvisei/go-kriging-service/internal/app/ginx"
 	"strings"
 
 	"github.com/gin-gonic/gin"
-	"github.com/liuvigongzuoshi/go-kriging-service/pkg/errors"
+	"github.com/lvisei/go-kriging-service/pkg/errors"
 )
 
 // NoMethodHandler 未找到请求方法的处理函数

@@ -5,7 +5,7 @@ import (
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/config"
+	"github.com/lvisei/go-kriging-service/internal/app/config"
 )
 
 // CORSMiddleware 跨域请求中间件

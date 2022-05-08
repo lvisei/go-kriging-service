@@ -3,14 +3,14 @@ package bll
 import (
 	"context"
 	"fmt"
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/schema"
-	"github.com/liuvigongzuoshi/go-kriging-service/pkg/errors"
+	"github.com/lvisei/go-kriging-service/internal/app/schema"
+	"github.com/lvisei/go-kriging-service/pkg/errors"
 	"image/color"
 	"net/http"
 	"time"
 
 	"github.com/google/wire"
-	"github.com/liuvigongzuoshi/go-kriging/ordinarykriging"
+	"github.com/lvisei/go-kriging/ordinarykriging"
 )
 
 // OrdinarySet 注入Ordinary

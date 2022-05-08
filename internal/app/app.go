@@ -11,11 +11,11 @@ import (
 	"time"
 
 	"github.com/google/gops/agent"
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/config"
-	"github.com/liuvigongzuoshi/go-kriging-service/pkg/logger"
+	"github.com/lvisei/go-kriging-service/internal/app/config"
+	"github.com/lvisei/go-kriging-service/pkg/logger"
 
 	// 引入swagger
-	_ "github.com/liuvigongzuoshi/go-kriging-service/internal/app/swagger"
+	_ "github.com/lvisei/go-kriging-service/internal/app/swagger"
 )
 
 type options struct {

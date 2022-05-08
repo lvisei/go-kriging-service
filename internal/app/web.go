@@ -3,9 +3,9 @@ package app
 import (
 	"github.com/LyricTian/gzip"
 	"github.com/gin-gonic/gin"
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/config"
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/middleware"
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/router"
+	"github.com/lvisei/go-kriging-service/internal/app/config"
+	"github.com/lvisei/go-kriging-service/internal/app/middleware"
+	"github.com/lvisei/go-kriging-service/internal/app/router"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	swaggerFiles "github.com/swaggo/gin-swagger/swaggerFiles"
 )

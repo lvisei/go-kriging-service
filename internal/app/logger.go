@@ -1,8 +1,8 @@
 package app
 
 import (
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/config"
-	"github.com/liuvigongzuoshi/go-kriging-service/pkg/logger"
+	"github.com/lvisei/go-kriging-service/internal/app/config"
+	"github.com/lvisei/go-kriging-service/pkg/logger"
 	"os"
 	"path/filepath"
 )

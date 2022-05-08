@@ -3,13 +3,13 @@ package middleware
 import (
 	"bytes"
 	"compress/gzip"
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/ginx"
+	"github.com/lvisei/go-kriging-service/internal/app/ginx"
 	"io"
 	"io/ioutil"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/config"
+	"github.com/lvisei/go-kriging-service/internal/app/config"
 )
 
 // CopyBodyMiddleware Copy body

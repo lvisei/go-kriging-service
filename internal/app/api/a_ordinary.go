@@ -3,12 +3,12 @@ package api
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/google/wire"
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/bll"
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/ginx"
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/schema"
-	"github.com/liuvigongzuoshi/go-kriging-service/pkg/errors"
-	"github.com/liuvigongzuoshi/go-kriging-service/pkg/util/json"
-	"github.com/liuvigongzuoshi/go-kriging/ordinarykriging"
+	"github.com/lvisei/go-kriging-service/internal/app/bll"
+	"github.com/lvisei/go-kriging-service/internal/app/ginx"
+	"github.com/lvisei/go-kriging-service/internal/app/schema"
+	"github.com/lvisei/go-kriging-service/pkg/errors"
+	"github.com/lvisei/go-kriging-service/pkg/util/json"
+	"github.com/lvisei/go-kriging/ordinarykriging"
 )
 
 // OrdinarySet 注入Ordinary

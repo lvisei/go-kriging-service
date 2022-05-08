@@ -4,7 +4,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/schema"
+	"github.com/lvisei/go-kriging-service/internal/app/schema"
 	"github.com/stretchr/testify/assert"
 )
 
