@@ -3,13 +3,14 @@ package middleware
 import (
 	"bytes"
 	"fmt"
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/ginx"
 	"io/ioutil"
 	"runtime"
 
+	"github.com/lvisei/go-kriging-service/internal/app/ginx"
+
 	"github.com/gin-gonic/gin"
-	"github.com/liuvigongzuoshi/go-kriging-service/pkg/errors"
-	"github.com/liuvigongzuoshi/go-kriging-service/pkg/logger"
+	"github.com/lvisei/go-kriging-service/pkg/errors"
+	"github.com/lvisei/go-kriging-service/pkg/logger"
 )
 
 var (

@@ -2,7 +2,7 @@ package middleware
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/config"
+	"github.com/lvisei/go-kriging-service/internal/app/config"
 )
 
 // RateLimiterMiddleware 请求频率限制中间件

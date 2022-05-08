@@ -4,8 +4,8 @@ import (
 	"context"
 	"os"
 
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app"
-	"github.com/liuvigongzuoshi/go-kriging-service/pkg/logger"
+	"github.com/lvisei/go-kriging-service/internal/app"
+	"github.com/lvisei/go-kriging-service/pkg/logger"
 	"github.com/urfave/cli/v2"
 )
 

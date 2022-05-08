@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/liuvigongzuoshi/go-kriging-service/pkg/util/json"
+	"github.com/lvisei/go-kriging-service/pkg/util/json"
 	"os"
 	"strings"
 	"sync"

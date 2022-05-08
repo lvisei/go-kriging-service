@@ -6,9 +6,9 @@
 package app
 
 import (
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/api"
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/bll"
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/router"
+	"github.com/lvisei/go-kriging-service/internal/app/api"
+	"github.com/lvisei/go-kriging-service/internal/app/bll"
+	"github.com/lvisei/go-kriging-service/internal/app/router"
 )
 
 // Injectors from wire.go:

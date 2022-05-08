@@ -1,14 +1,15 @@
 package middleware
 
 import (
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/config"
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/ginx"
 	"mime"
 	"net/http"
 	"time"
 
+	"github.com/lvisei/go-kriging-service/internal/app/config"
+	"github.com/lvisei/go-kriging-service/internal/app/ginx"
+
 	"github.com/gin-gonic/gin"
-	"github.com/liuvigongzuoshi/go-kriging-service/pkg/logger"
+	"github.com/lvisei/go-kriging-service/pkg/logger"
 )
 
 // LoggerMiddleware 日志中间件

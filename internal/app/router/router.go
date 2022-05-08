@@ -3,7 +3,7 @@ package router
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/google/wire"
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/api"
+	"github.com/lvisei/go-kriging-service/internal/app/api"
 )
 
 var _ IRouter = (*Router)(nil)

@@ -5,14 +5,15 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app"
 	"io"
 	"net/http"
 	"net/url"
 	"strings"
 
+	"github.com/lvisei/go-kriging-service/internal/app"
+
 	"github.com/gin-gonic/gin"
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/config"
+	"github.com/lvisei/go-kriging-service/internal/app/config"
 )
 
 const (

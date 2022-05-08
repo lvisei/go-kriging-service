@@ -15,8 +15,8 @@
 # vendor/
 
 *.DS_Store
-/cmd/github.com/liuvigongzuoshi/go-kriging-service/github.com/liuvigongzuoshi/go-kriging-service
-/cmd/github.com/liuvigongzuoshi/go-kriging-service/data
+/cmd/github.com/lvisei/go-kriging-service/github.com/lvisei/go-kriging-service
+/cmd/github.com/lvisei/go-kriging-service/data
 /release
 /data
 /internal/app/test/data

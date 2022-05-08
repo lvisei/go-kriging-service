@@ -1,14 +1,16 @@
+//go:build wireinject
 // +build wireinject
+
 // The build tag makes sure the stub is not built in the final build.
 
 package app
 
 import (
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/api"
-	bll "github.com/liuvigongzuoshi/go-kriging-service/internal/app/bll"
+	"github.com/lvisei/go-kriging-service/internal/app/api"
+	bll "github.com/lvisei/go-kriging-service/internal/app/bll"
 
 	"github.com/google/wire"
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/router"
+	"github.com/lvisei/go-kriging-service/internal/app/router"
 )
 
 // BuildInjector 生成注入器

@@ -2,7 +2,7 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/liuvigongzuoshi/go-kriging-service/internal/app/middleware"
+	"github.com/lvisei/go-kriging-service/internal/app/middleware"
 )
 
 // RegisterAPI register api group router
