@@ -19,7 +19,7 @@ func main() {
 	app := cli.NewApp()
 	app.Name = "go-kriging-service"
 	app.Version = VERSION
-	app.Usage = "Golang Service for go-kriging (Golang library for geospatial prediction and mapping via ordinary kriging.)\n"
+	app.Usage = "Golang Service for go-kriging (Golang library for geospatial prediction and mapping via ordinary kriging)\n"
 	app.Commands = []*cli.Command{
 		newWebCmd(ctx),
 	}
